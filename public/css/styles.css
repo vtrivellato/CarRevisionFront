@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
+/* VARIABLE */
+
+:root {
+    --brackground: #eeeeee;
+    --text-primary: #111111;
+    --text-secondary: #dedede;
+    --color-primary: #69a9de;
+    --color-secondary: #999999; 
+}
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* HOME */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    ;
+}
+
+header {
+    max-width: 940px;
+    width: 52%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding: 30px 0 50px;
+}
+
+header .home {
+    font-size: 24px;
+    line-height: 27px;
+    margin-right: 123px;
+    font-family: serif;
+}
+
+header nav {
+    width: 100%;
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    list-style-type: none;
+}
+
+header nav ul li~li {
+    margin-left: 30px;
+}
+
+header nav ul li.push-right {
+    align-self: flex-end;
+}
+
+header a {
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--text-primary);
+}
+
+header a img {
+    height: 48px;
+}
+
+footer {
+    background-color: var(--background);
+    height: 62px;
+    text-align: center;
+    padding: 23px;
+    margin-top: 40px;
+    width: 100vw;
+    ;
+}
+
+footer p {
+    font-size: 14px;
+    color: var(--color-secondary);
+}
+
+/* INPUTS */
+
+.animar-input {
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.animar-input input, 
+.animar-input select {
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--text-secondary);
+    transition: border-color 300ms ease-out;
+    -webkit-transition: border-color 300ms ease-out;
+    -moz-transition: border-color 300ms ease-out;
+}
+
+.animar-input input[type=date] {
+    color: #fff;
+}
+
+.animar-input textarea {
+    padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid var(--text-secondary);
+    border-radius: 8px;
+    transition: border-color 300ms ease-out;
+    -webkit-transition: border-color 300ms ease-out;
+    -moz-transition: border-color 300ms ease-out;
+}
+
+.animar-input label {
+    position: absolute;
+    top: 6px;
+    left: 16px;
+    color: var(--text-secondary);
+    pointer-events: none;
+    /**/
+    transition-property: color, font-size, font-weight, top, left;
+    -webkit-transition-property: color, font-size, font-weight, top, left;
+    -moz-transition-property: color, font-size, font-weight, top, left;
+    -o-transition-property: color, font-size, font-weight, top, left;
+    /**/
+    transition-duration: 300ms;
+    -webkit-transition-duration: 300ms;
+    -moz-transition-duration: 300ms;
+    -o-transition-duration: 300ms;
+    /**/
+    transition-timing-function: ease-out;
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+}
+
+.animar-input p {
+    color: var(--text-secondary);
+    text-align: left;
+    margin-top: 10px;
+    padding: 0 6px;
+}
+
+.animar-input input:focus, 
+.animar-input input.active, 
+.animar-input select.active, 
+.animar-input select:focus {
+    border-bottom: 2px solid var(--text-secondary);
+}
+
+.animar-input input[type=date]:focus, 
+.animar-input input[type=date].active {
+    color: var(--text-secondary);
+}
+
+.animar-input textarea.active, 
+.animar-input textarea:focus {
+    border: 2px solid var(--text-secondary);
+}
+
+.animar-input input:focus~label, 
+.animar-input select:focus~label, 
+.animar-input textarea:focus~label, 
+.animar-input label.active {
+    top: -16px;
+    left: 4px;
+    color: var(--text-secondary);
+    font-size: 12.5px;
+    font-weight: bold;
+}
+
+/* BOTôES */
+
+.btn-geral {
+    display: inline-block;
+
+    font-size: 16px;    
+    height: 48px;
+
+    width: 100%;
+    min-width: 100px;
+    max-width: 240px;
+    margin-bottom: 0;
+    padding: 0 12px;
+
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    outline: none;
+
+    transition: filter 300ms;
+}
+
+.btn-geral:hover {
+    filter: brightness(0.9);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+}
+
+/* CONTAINERS */
+
+.div-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.div-flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

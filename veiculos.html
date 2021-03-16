@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Autoware | Cadastro de veículos</title>
+
+    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../public/css/veiculos.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a class="home" href="/"><img src="public/assets/logo.png"" alt=" logo"></a>
+
+            <nav>
+                <ul>
+                    <li><a href="/veiculos.html">Veículos</a></li>
+                    <li><a href="/revisoes.html">Revisões</a></li>
+                    <li class=".push-right"><a href="">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="form">
+            <form id="form-veiculos">
+                <div class="div-flex-row">
+                    <div class="animar-input">
+                        <input type="text" required="true" maxlength="17" data-val="true"
+                            data-val-required="The Chassi field is required." id="txt-chassi">
+                        <label>Chassi</label>
+                    </div>
+                    <div class="animar-input">
+                        <input type="text" required="true" maxlength="8" data-val="true"
+                            data-val-required="The Placa field is required." id="txt-placa" oninput="AplicaMascara(this, mPlaca)">
+                        <label>Placa</label>
+                    </div>
+                    <div class="animar-input">
+
+                    </div>
+                </div>
+
+                <div class="div-flex-row">
+                    <div class="animar-input">
+                        <select required="true" data-val="true" data-val-required="The Fabricante field is required."
+                            id="sel-fabricantes">
+                        </select>
+                        <label>Fabricante</label>
+                    </div>
+                    <div class="animar-input">
+                        <select required="true" data-val="true" data-val-required="The Modelo field is required."
+                            id="sel-modelos">
+                        </select>
+                        <label>Modelo</label>
+                    </div>
+                    <div class="animar-input">
+                        <select ata-val="true" data-val-required="The Cor field is required." id="sel-cores">
+                        </select>
+                        <label>Cor</label>
+                    </div>
+                </div>
+
+                <button class="btn-geral btn-secondary" type="submit" id="btn-gravar">Gravar</button>
+            </form>
+        </div>
+
+        <footer>
+            <p>Todos direitos reservados, nome empresa.</p>
+        </footer>
+    </div>
+
+    <script src="../public/js/scripts.js"></script>
+    <script src="../public/js/masks.js"></script>
+    <script src="../public/js/veiculos.js"></script>
+</body>
+
+</html>

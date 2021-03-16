@@ -1,0 +1,53 @@
+.hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 52%;
+    max-width: 940px;
+    margin: 0 auto;
+    flex: 1;
+    background-color: var(--color-pri);
+    border-radius: 30px;
+    padding: 0 100px;
+    margin-bottom: 50px;
+    min-height: 320px;
+}
+
+.hero .text, 
+.hero .login {
+    width: 50%;
+}
+
+.hero h2 {
+    font-size: 32px;
+    margin: 16px 0;
+    color: var(--text-primary);
+}
+
+.hero p {
+    opacity: 0.7;
+    font-size: 18px;
+    color: var(--text-primary);
+    line-height: 28px;
+    max-width: 320px;
+}
+
+.hero p:last-child {
+    margin-bottom: 16px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+}

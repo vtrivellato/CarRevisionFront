@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Autoware | Página inicial</title>
+
+    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../public/css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a class="home" href="/"><img src="public/assets/logo.png"" alt="logo"></a>
+        </header>
+
+        <div class="hero">
+            <div class="text">
+                <h2>Revisão veicular</h2>
+                <p>
+                    Sistema de cadastro de veículos e revisões.
+                </p>
+            </div>
+            <div class="login">
+                <form id="form-login">
+                    <div class="animar-input">
+                        <input type="text" required="true" data-val="true" data-val-required="The Login field is required." id="txt-login" name="txt-login">
+                        <label>Login</label>
+                    </div>
+                    <div class="animar-input">
+                        <input type="password" required="true" data-val="true" data-val-required="The Senha field is required." id="txt-senha" name="txt-senha">
+                        <label>Senha</label>
+                    </div>
+
+                    <button class="btn-geral btn-secondary" type="submit" id="btn-login">Entrar</button>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p>Todos direitos reservados, nome empresa.</p>
+        </footer>
+    </div>
+
+    <script src="../public/js/scripts.js"></script>
+    <script src="../public/js/login.js"></script>
+</body>
+
+</html>
