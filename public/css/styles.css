@@ -81,7 +81,8 @@ header a {
     transition: color 300ms font-weight 300ms;
 }
 
-header a:hover {
+header a:hover, 
+header a.active {
     font-weight: 600;
     color: var(--color-primary);
 }
@@ -107,6 +108,10 @@ footer p {
 
 /* INPUTS */
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px var(--color-primary) inset;
+}
+
 a:hover {
     cursor: pointer;
 }
@@ -118,8 +123,10 @@ a:hover {
 }
 
 .animar-input input, 
-.animar-input select {
-    background-color: transparent;
+.animar-input select, 
+.animar-input textarea {
+    background-color: transparent !important;
+    color: var(--text-secondary);
     font-size: 16px;
     line-height: 24px;
     padding: 4px;
@@ -127,11 +134,20 @@ a:hover {
     box-sizing: border-box;
     box-shadow: none;
     outline: none;
-    border: none;
-    border-bottom: 1px solid var(--text-secondary);
     transition: border-color 300ms ease-out;
     -webkit-transition: border-color 300ms ease-out;
     -moz-transition: border-color 300ms ease-out;
+}
+
+.animar-input input, 
+.animar-input select {
+    border-bottom: 1px solid var(--text-secondary);
+}
+
+.animar-input textarea {
+    border: 1px solid var(--text-secondary);
+    border-radius: 16px;
+    padding: 8px;
 }
 
 .animar-input select > option {
@@ -140,19 +156,6 @@ a:hover {
 
 .animar-input input[type=date] {
     color: var(--color-primary);
-}
-
-.animar-input textarea {
-    padding: 4px;
-    width: 100%;
-    box-sizing: border-box;
-    box-shadow: none;
-    outline: none;
-    border: 1px solid var(--text-secondary);
-    border-radius: 8px;
-    transition: border-color 300ms ease-out;
-    -webkit-transition: border-color 300ms ease-out;
-    -moz-transition: border-color 300ms ease-out;
 }
 
 .animar-input label {

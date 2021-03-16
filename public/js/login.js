@@ -22,7 +22,7 @@ function entrarSistema(e) {
         let senha = document.getElementById('txt-senha').value
 
         if (login === 'master' && senha === '1234') {
-            window.location.assign("/veiculos.html")
+            window.location.assign('/veiculos.html')
             return
         }
 

@@ -18,6 +18,12 @@ ready(() => {
     if (btnBusca !== null && btnBusca !== undefined) {
         btnBusca.addEventListener('click', carregaVeiculo)
     }
+
+    let btnLimpar = document.getElementById('btn-limpar')
+
+    if (btnLimpar !== null && btnLimpar !== undefined) {
+        btnLimpar.addEventListener('click', limparTudo)
+    }
 })
 
 function carregaSelects(resource, filter) {
@@ -83,8 +89,8 @@ function gravaVeiculo(e) {
         fabricante: parseInt(document.getElementById('sel-fabricantes').value),
         modelo: document.getElementById('sel-modelos').value,
         cor: document.getElementById('sel-cores').value,
-        datavenda: document.getElementById('dat-datavenda').value,
-        valor: parseFloat(document.getElementById('txt-valor').value.replace(/\D/g, "")) / 100
+        dataVenda: document.getElementById('dat-datavenda').value,
+        valor: parseFloat(document.getElementById('txt-valor').value.replace(/\D/g, '')) / 100
     }
 
     fetch(`https://localhost:5001/api/veiculos`, {
@@ -100,11 +106,16 @@ function gravaVeiculo(e) {
             if (data) {
                 limpaForm('form-veiculos')
 
+                limpaOpcoes('modelos')
+                limpaOpcoes('cores')
+
                 alert('Veículo gravado com sucesso.')
+            } else {
+                alert('Foi encontrado um problema ao gravar o veículo. Revise os dados e tente novamente em instantes.')
             }
         })
         .catch(error => {
-            alert(error)
+            alert('Foi encontrado um problema ao gravar o veículo. Revise os dados e tente novamente em instantes.')
         })
 }
 
@@ -114,24 +125,6 @@ function converteData(target) {
     let s = obj.value.split('-')
 
     return new Date(s[0], s[1], s[2])
-}
-
-function limpaForm(element) {
-    let form = document.getElementById(element)
-
-    form.reset()
-
-    limpaOpcoes('modelos')
-    limpaOpcoes('cores')
-
-    let inputs = form.querySelectorAll('input,textarea,select')
-
-    for (item of inputs) {
-        item.classList.remove('active')
-        item.focus()
-    }
-
-    document.getElementsByTagName('button')[0].focus()
 }
 
 let modelo
@@ -158,15 +151,19 @@ function carregaVeiculo() {
                     let chassi = document.getElementById('txt-chassi')
                     chassi.value = data.chassi
                     validaCampos(chassi)
+                    chassi.disabled = true
 
                     let placa = document.getElementById('txt-placa')
                     placa.value = data.placa
+                    AplicaMascara(placa, mPlaca)
                     validaCampos(placa)
+                    placa.disabled = true
 
                     let fabricante = document.getElementById('sel-fabricantes')
                     fabricante.value = data.fabricante.toString()
                     fabricante.dispatchEvent(event)
                     validaCampos(fabricante)
+                    fabricante.disabled = true
 
                     modelo = data.modelo
                     cor = data.cor
@@ -175,10 +172,12 @@ function carregaVeiculo() {
                         let modelo2 = document.getElementById('sel-modelos')
                         modelo2.value = modelo
                         validaCampos(modelo2)
+                        modelo2.disabled = true
 
                         let cor2 = document.getElementById('sel-cores')
                         cor2.value = cor
                         validaCampos(cor2)
+                        cor2.disabled = true
 
                         modelo = ''
                         cor = ''
@@ -187,17 +186,32 @@ function carregaVeiculo() {
                     let date = new Date(data.dataVenda)
 
                     let datDataVenda = document.getElementById('dat-datavenda')
-                    datDataVenda.value = `${date.getFullYear()}-${('0' + date.getMonth()).slice(-2)}-${('0' + date.getDay()).slice(-2)}`
+                    datDataVenda.value = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDay()).slice(-2)}`
                     validaCampos(datDataVenda)
+                    datDataVenda.disabled = true
 
                     let valor = document.getElementById('txt-valor')
                     valor.value = parseFloat(data.valor).toFixed(2)
                     AplicaMascara(valor, mMoeda)
                     validaCampos(valor)
+                    valor.disabled = true
+
+                    let btnGravar = document.getElementById('btn-gravar')
+                    btnGravar.disabled = true
                 }
             }
         })
         .catch(error => {
             alert(error)
         })
+}
+
+function limparTudo() {
+    limpaForm('form-veiculos')
+
+    limpaOpcoes('modelos')
+    limpaOpcoes('cores')
+
+    let btnGravar = document.getElementById('btn-gravar')
+    btnGravar.disabled = true
 }

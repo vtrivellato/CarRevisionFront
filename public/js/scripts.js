@@ -54,16 +54,40 @@ function validaCampos(input) {
             input.classList.remove('active')
             label.classList.remove('active')
         }
-    }    
+    }
 }
 
 function limitaInputs() {
     let elements = document.getElementsByTagName('input[type=text], textarea')
-    
+
     for (element of elements) {
         element.addEventListener('oninput', () => {
-            if (this.value.length > this.maxLength) 
+            if (this.value.length > this.maxLength)
                 this.value = this.value.slice(0, this.maxLength)
         })
     }
+}
+
+function limpaForm(element) {
+    let form = document.getElementById(element)
+
+    form.reset()
+
+    let inputs = form.querySelectorAll('input,textarea,select')
+
+    for (item of inputs) {
+        item.classList.remove('active')
+        item.disabled = false
+        item.focus()
+    }
+
+    document.getElementsByTagName('button')[0].focus()
+}
+
+function formataData(data) {
+    let dia = data.getDate().toString().padStart(2, '0')
+    let mes = (data.getMonth() + 1).toString().padStart(2, '0')
+    let ano = data.getFullYear()
+
+    return `${dia}/${mes}/${ano}`
 }

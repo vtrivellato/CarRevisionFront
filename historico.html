@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Autoware | Histórico de revisões</title>
+
+    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../public/css/historico.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a class="home" href="/"><img src="public/assets/logo.png"" alt=" logo"></a>
+
+            <nav>
+                <ul>
+                    <li><a href="/veiculos.html">Veículos</a></li>
+                    <li><a href="/revisoes.html">Revisões</a></li>
+                    <li><a href="/historico.html" class="active">Histórico</a></li>
+                    <li><a href="/index.html">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="form">
+            <div class="div-flex-column">
+                <form id="form-historico">
+                    <div class="div-flex-row">
+                        <div class="animar-input">
+                            <input type="text" required="true" minlength="17" maxlength="17" autocomplete="off" data-val="true"
+                                data-val-required="The Chassi field is required." id="txt-chassi">
+                            <label>Chassi</label>
+                        </div>
+                        <div class="animar-input">
+                            <input type="number" class="number" maxlength="6" autocomplete="off" data-val="true"
+                                data-val-required="The Km field is required." id="txt-km">
+                            <label>Km</label>
+                        </div>
+                        <div class="animar-input">
+                            <input type="date" data-val="true"
+                                data-val-required="The Data de revisão field is required." id="dat-datarevisao">
+                            <label>Data de revisão</label>
+                        </div>
+                        <div class="animar-input">
+                            <input type="text" class="number" maxlength="16" autocomplete="off" id="txt-valor" oninput="AplicaMascara(this, mMoeda)">
+                            <label>Valor</label>
+                        </div>
+                    </div>
+    
+                    <div class="button-container">
+                        <button class="btn-geral btn-secondary" type="submit" id="btn-buscar">Buscar</button>
+                    </div>
+                </form>
+
+                <div class="results">
+                    <table id="results">
+                        <thead>
+                            <tr>
+                                <th>Chassi</th>
+                                <th>Km</th>
+                                <th>Data de revisão</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>    
+            </div>
+        </div>
+
+        <footer>
+            <p>Todos direitos reservados, nome empresa.</p>
+        </footer>
+    </div>
+
+    <script src="../public/js/scripts.js"></script>
+    <script src="../public/js/masks.js"></script>
+    <script src="../public/js/revisoes.js"></script>
+</body>
+
+</html>
