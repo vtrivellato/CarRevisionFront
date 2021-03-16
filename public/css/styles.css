@@ -6,7 +6,8 @@
     --text-primary: #111111;
     --text-secondary: #dedede;
     --color-primary: #69a9de;
-    --color-secondary: #999999; 
+    --color-secondary: #999999;
+    --color-validated: #2aa312;
 }
 
 /* GENERAL */
@@ -30,7 +31,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    ;
 }
 
 header {
@@ -58,17 +58,18 @@ header nav {
 header nav ul {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     align-items: center;
     list-style-type: none;
 }
 
-header nav ul li~li {
-    margin-left: 30px;
+header nav ul li {
+    margin-right: 30px;
 }
 
-header nav ul li.push-right {
-    align-self: flex-end;
+header nav ul li:last-child {
+    margin-left: auto;
+    margin-right: 0;
 }
 
 header a {
@@ -76,6 +77,13 @@ header a {
     font-size: 16px;
     line-height: 19px;
     color: var(--text-primary);
+
+    transition: color 300ms font-weight 300ms;
+}
+
+header a:hover {
+    font-weight: 600;
+    color: var(--color-primary);
 }
 
 header a img {
@@ -83,7 +91,7 @@ header a img {
 }
 
 footer {
-    background-color: var(--background);
+    background-color: var(--color-secondary);
     height: 62px;
     text-align: center;
     padding: 23px;
@@ -94,10 +102,14 @@ footer {
 
 footer p {
     font-size: 14px;
-    color: var(--color-secondary);
+    color: var(--text-secondary);
 }
 
 /* INPUTS */
+
+a:hover {
+    cursor: pointer;
+}
 
 .animar-input {
     position: relative;
@@ -122,8 +134,12 @@ footer p {
     -moz-transition: border-color 300ms ease-out;
 }
 
+.animar-input select > option {
+    background: var(--color-primary);
+}
+
 .animar-input input[type=date] {
-    color: #fff;
+    color: var(--color-primary);
 }
 
 .animar-input textarea {
@@ -174,6 +190,7 @@ footer p {
 .animar-input select.active, 
 .animar-input select:focus {
     border-bottom: 2px solid var(--text-secondary);
+    color: var(--text-secondary);
 }
 
 .animar-input input[type=date]:focus, 
@@ -195,6 +212,18 @@ footer p {
     color: var(--text-secondary);
     font-size: 12.5px;
     font-weight: bold;
+}
+
+.animar-input a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px;
+}
+
+.animar-input a img {
+    width: 20px;
+    height: 20px;
 }
 
 /* BOTôES */
@@ -233,16 +262,38 @@ footer p {
     background-color: var(--color-secondary);
 }
 
+.button-container {
+    text-align: right;
+}
+
 /* CONTAINERS */
 
 .div-flex-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    margin-bottom: 16px;
 }
 
 .div-flex-column {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    margin-bottom: 16px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.number {
+    text-align: right;
 }

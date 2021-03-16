@@ -64,5 +64,13 @@ function mNum(num) {
 function mPlaca(placa) {
     placa = placa.replace(/^(\w{3})(\w{4})/, "$1-$2")
 
-    return placa
+    return placa.toUpperCase()
+}
+
+function mMoeda(valor) {
+    valor = valor.replace(/\D/g, "")
+
+    let v = parseFloat(valor / 100)
+
+    return v.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
 }

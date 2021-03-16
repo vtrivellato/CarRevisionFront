@@ -12,7 +12,7 @@ function entrarSistema(e) {
     let form = document.getElementById('form-login')
 
     if (!form.checkValidity()) {
-        var tmpSubmit = document.createElement('button')
+        let tmpSubmit = document.createElement('button')
 
         form.appendChild(tmpSubmit)
         tmpSubmit.click()
